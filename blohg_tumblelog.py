@@ -26,105 +26,371 @@ ext = BlohgExtension(__name__)
 ## OEmbed providers
 providers = {
 
-    # Youtube
-    'http://www.youtube.com/oembed': [
-        r'regex:https?://(www\.)?youtube\.com/watch.*',
-        r'regex:http://youtu\.be/.*'],
-
-    # Vimeo
-    'http://vimeo.com/api/oembed.{format}': [
-        r'regex:https?://(www\.)?vimeo\.com/.*'],
-
-    # Rdio
-    'http://www.rdio.com/api/oembed/': [
-        r'regex:http://www\.rdio\.com/(artist|people)/.*',
-        r'regex:http://rd\.io/.*'],
-
-    # Flickr
-    'http://www.flickr.com/services/oembed': [
-        r'regex:https?://(www\.)?flickr\.com/.*'],
-
-    # Instagram
-    'http://api.instagram.com/oembed': [
-        r'regex:http://instagr(\.am|am\.com)/p/.*'],
-
     # Imgur
     'http://api.imgur.com/oembed': [
-        r'regex:http://(i\.)?imgur\.com/.*'],
+        'http://i.imgur.com/*',
+        'http://imgur.com/*',
+    ],
 
     # Twitter
     'https://api.twitter.com/1/statuses/oembed.{format}': [
-        r'regex:https?://(www\.)?twitter\.com/.+?/status(es)?/.*'],
-
-    # DailyMotion
-    'http://www.dailymotion.com/services/oembed': [
-        r'regex:https?://(www\.)?dailymotion\.com/.*'],
-
-    # SmugMug
-    'http://api.smugmug.com/services/oembed/': [
-        r'regex:https?://(.+\.)?smugmug\.com/.*'],
-
-    # Hulu
-    'http://www.hulu.com/api/oembed.{format}': [
-        r'regex:https?://(www\.)?hulu\.com/watch/.*'],
-
-    # Viddler
-    'http://lab.viddler.com/services/oembed/': [
-        r'regex:https?://(www\.)?viddler\.com/.*'],
-
-    # Qik
-    'http://qik.com/api/oembed.{format}': [
-        r'regex:http://qik\.com/.*'],
-
-    # Revision3
-    'http://revision3.com/api/oembed/': [
-        r'regex:http://revision3\.com/.*'],
+        'http://www.twitter.com/*/status/*',
+        'http://www.twitter.com/*/statuses/*',
+        'http://twitter.com/*/status/*',
+        'http://twitter.com/*/statuses/*',
+        'https://www.twitter.com/*/status/*',
+        'https://www.twitter.com/*/statuses/*',
+        'https://twitter.com/*/status/*',
+        'https://twitter.com/*/statuses/*',
+    ],
 
     # Photobucket
     'http://photobucket.com/oembed': [
-        r'regex:http://i.*\.photobucket\.com/albums/.*',
-        r'regex:http://gi.*\.photobucket\.com/groups/.*'],
-
-    # Scribd
-    'http://www.scribd.com/services/oembed': [
-        r'regex:https?://(www\.)?scribd\.com/.*'],
+        'http://i*.photobucket.com/albums/*',
+        'http://gi*.photobucket.com/groups/*',
+    ],
 
     # Wordpress.tv
     'http://wordpress.tv/oembed/': [
-        r'regex:http://wordpress\.tv/.*'],
+        'http://wordpress.tv/*'
+    ],
 
-    # Polldaddy
-    'http://polldaddy.com/oembed/': [
-        r'regex:https?://(.+\.)?polldaddy\.com/.*'],
+    # IFTTT
+    'http://www.ifttt.com/oembed/': [
+        'http://ifttt.com/recipes/*',
+    ],
 
-    # Funny or die
-    'http://www.funnyordie.com/oembed': [
-        r'regex:https?://(www\.)?funnyordie\.com/videos/.*'],
+    # YouTube
+    'http://www.youtube.com/oembed': [
+        'http://youtube.com/*',
+        'https://youtube.com/*',
+        'http://youtu.be/*',
+    ],
+
+    # Flickr
+    'http://www.flickr.com/services/oembed/': [
+        'http://*.flickr.com/photos/*',
+        'http://flic.kr/p/*',
+    ],
+
+    # Viddler
+    'http://www.viddler.com/oembed/': [
+        'http://www.viddler.com/v/*',
+    ],
+
+    # Qik
+    'http://qik.com/api/oembed.{format}': [
+        'http://qik.com/video/*',
+        'http://qik.com/*',
+    ],
+
+    # Revision3
+    'http://revision3.com/api/oembed/': [
+        'http://*.revision3.com/*',
+    ],
+
+    # Hulu
+    'http://www.hulu.com/api/oembed.{format}': [
+        'http://www.hulu.com/watch/*',
+    ],
+
+    # Vimeo
+    'http://vimeo.com/api/oembed.{format}': [
+        'http://vimeo.com/*',
+        'http://vimeo.com/groups/*/videos/*',
+    ],
 
     # CollegeHumor
     'http://www.collegehumor.com/oembed.{format}': [
-        r'regex:http://www\.collegehumor\.com/video/.*'],
+        'http://www.collegehumor.com/video/*',
+    ],
 
     # Jest
     'http://www.jest.com/oembed.{format}': [
-        r'regex:http://www\.jest\.com/(video|embed)/.*'],
+        'http://www.jest.com/embed/*',
+    ],
+
+    # Jest
+    'http://www.jest.com/oembed.{format}': [
+        'http://www.jest.com/embed/*',
+    ],
 
     # Poll Everywhere
     'http://www.polleverywhere.com/services/oembed/': [
-        r'regex:http://www\.polleverywhere\.com/(polls|multiple_choice_polls|'
-        r'free_text_polls)/.*'],
+        'http://www.polleverywhere.com/polls/*',
+        'http://www.polleverywhere.com/multiple_choice_polls/*',
+        'http://www.polleverywhere.com/free_text_polls/*',
+    ],
+
+    # iFixit
+    'http://www.ifixit.com/Embed': [
+        'http://www.ifixit.com/Guide/View/*',
+    ],
+
+    # SmugMug
+    'http://api.smugmug.com/services/oembed/': [
+        'http://*.smugmug.com/*',
+        'http://*.example.com/*',
+    ],
+
+    # Deviantart.com
+    'http://backend.deviantart.com/oembed': [
+        'http://*.deviantart.com/art/*',
+        'http://*.deviantart.com/*#/d*',
+        'http://fav.me/*',
+        'http://sta.sh/*',
+    ],
 
     # SlideShare
     'http://www.slideshare.net/api/oembed/2': [
-        r'regex:http://www\.slideshare\.net/[^/]+/.*'],
+        'http://www.slideshare.net/*/*',
+    ],
+
+    # chirbit.com
+    'http://chirb.it/oembed.json': [
+        'http://chirb.it/*',
+    ],
+
+    # nfb.ca
+    'http://www.nfb.ca/remote/services/oembed/': [
+        'http://*.nfb.ca/films/*',
+    ],
+
+    # Scribd
+    'http://www.scribd.com/services/oembed/': [
+        'http://www.scribd.com/doc/*',
+    ],
+
+    # Dotsub
+    'http://dotsub.com/services/oembed': [
+        'http://dotsub.com/view/*',
+    ],
+
+    # Animoto
+    'http://animoto.com/oembeds/create': [
+        'http://animoto.com/play/*',
+    ],
+
+    # Rdio
+    'http://www.rdio.com/api/oembed/': [
+        'http://*.rdio.com/artist/*',
+        'http://*.rdio.com/people/*',
+    ],
+
+    # MixCloud
+    'http://www.mixcloud.com/oembed/': [
+        'http://www.mixcloud.com/*/*/',
+    ],
+
+    # Screenr
+    'http://www.screenr.com/api/oembed.{format}': [
+        'http://www.screenr.com/*/',
+    ],
+
+    # FunnyOrDie
+    'http://www.funnyordie.com/oembed.{format}': [
+        'http://www.funnyordie.com/videos/*',
+    ],
+
+    # Poll Daddy
+    'http://polldaddy.com/oembed/': [
+        'http://*.polldaddy.com/s/*',
+        'http://*.polldaddy.com/poll/*',
+        'http://*.polldaddy.com/ratings/*',
+    ],
+
+    # VideoJug
+    'http://www.videojug.com/oembed.{format}': [
+        'http://www.videojug.com/film/*',
+        'http://www.videojug.com/interview/*',
+    ],
+
+    # Sapo Videos
+    'http://videos.sapo.pt/oembed': [
+        'http://videos.sapo.pt/*',
+    ],
+
+    # Justin.tv
+    'http://api.justin.tv/api/embed/from_url.{json}': [
+        'http://www.justin.tv/*',
+    ],
+
+    # Official FM
+    'http://official.fm/services/oembed.{format}': [
+        'http://official.fm/tracks/*',
+        'http://official.fm/playlists/*',
+    ],
+
+    # HuffDuffer
+    'http://huffduffer.com/oembed': [
+        'http://huffduffer.com/*/*',
+    ],
+
+    # Shoudio
+    'http://shoudio.com/api/oembed': [
+        'http://shoudio.com/*',
+        'http://shoud.io/*',
+    ],
+
+    # Moby Picture
+    'http://api.mobypicture.com/oEmbed': [
+        'http://www.mobypicture.com/user/*/view/*',
+        'http://moby.to/*',
+    ],
+
+    # 23HQ
+    'http://www.23hq.com/23/oembed': [
+        'http://www.23hq.com/*/photo/*',
+    ],
+
+    # Urtak
+    'http://oembed.urtak.com/1/oembed': [
+        'http://urtak.com/u/*',
+        'http://urtak.com/clr/*',
+    ],
+
+    # Cacoo
+    'http://cacoo.com/oembed.{format}': [
+        'https://cacoo.com/diagrams/*',
+    ],
+
+    # Dipity
+    'http://www.dipity.com/oembed/timeline/': [
+        'http://www.dipity.com/*/*/',
+    ],
+
+    # Roomshare
+    'http://roomshare.jp/en/oembed.{format}': [
+        'http://roomshare.jp/post/*',
+        'http://roomshare.jp/en/post/*',
+    ],
+
+    # Daily Motion
+    'http://www.dailymotion.com/services/oembed': [
+        'http://www.dailymotion.com/video/*',
+    ],
+
+    # Crowd Ranking
+    'http://crowdranking.com/api/oembed.{format}': [
+        'http://crowdranking.com/*/*',
+    ],
 
     # CircuitLab
     'https://www.circuitlab.com/circuit/oembed/': [
-        r'regex:https://www\.circuitlab\.com/circuit/.*'],
+        'https://www.circuitlab.com/circuit/*',
+    ],
+
+    # Geograph Britain and Ireland
+    'http://api.geograph.org.uk/api/oembed': [
+        'http://*.geograph.org.uk/*',
+        'http://*.geograph.co.uk/*',
+        'http://*.geograph.ie/*',
+        'http://*.wikimedia.org/*_geograph.org.uk_*',
+    ],
+
+    # Geograph Germany
+    'http://geo.hlipp.de/restapi.php/api/oembed': [
+        'http://geo-en.hlipp.de/*',
+        'http://geo.hlipp.de/*',
+        'http://germany.geograph.org/*',
+    ],
+
+    # Geograph Channel Islands
+    'http://www.geograph.org.gg/api/oembed': [
+        'http://*.geograph.org.gg/*',
+        'http://*.geograph.org.je/*',
+        'http://channel-islands.geograph.org/*',
+        'http://channel-islands.geographs.org/*',
+        'http://*.channel.geographs.org/*',
+    ],
+
+    # Quiz.biz
+    'http://www.quiz.biz/api/oembed': [
+        'http://www.quiz.biz/quizz-*.html',
+    ],
+
+    # Quizz.biz
+    'http://www.quizz.biz/api/oembed': [
+        'http://www.quizz.biz/quizz-*.html',
+    ],
+
+    # Coub
+    'http://coub.com/api/oembed.{format}': [
+        'http://coub.com/view/*',
+        'http://coub.com/embed/*',
+    ],
+
+    # SpeakerDeck
+    'https://speakerdeck.com/oembed.json': [
+        'http://speakerdeck.com/*/*',
+        'https://speakerdeck.com/*/*',
+    ],
+
+    # Alpha App Net
+    'https://alpha-api.app.net/oembed': [
+        'https://alpha.app.net/*/post/*',
+        'https://photos.app.net/*/*',
+    ],
+
+    # BlipTV
+    'http://blip.tv/oembed/': [
+        'http://*.blip.tv/*/*',
+    ],
+
+    # YFrog
+    'http://www.yfrog.com/api/oembed': [
+        'http://*.yfrog.com/*',
+        'http://yfrog.us/*',
+    ],
+
+    # Instagram
+    'http://api.instagram.com/oembed': [
+        'http://instagram.com/p/*',
+        'http://instagr.am/p/*',
+    ],
 
     # SoundCloud
-    'http://soundcloud.com/oembed': [
-        r'regex:https?://soundcloud\.com/.*'],
+    'https://soundcloud.com/oembed': [
+        'http://soundcloud.com/*',
+    ],
+
+    # On Aol
+    'http://on.aol.com/api': [
+        'http://on.aol.com/video/*',
+    ],
+
+    # Kickstarter
+    'http://www.kickstarter.com/services/oembed': [
+        'http://www.kickstarter.com/projects/*',
+    ],
+
+    # Ustream
+    'http://www.ustream.tv/oembed': [
+        'http://*.ustream.tv/*',
+        'http://*.ustream.com/*',
+    ],
+
+    # GMEP
+    'https://gmep.org/oembed.{format}': [
+        'https://gmep.org/media/*',
+    ],
+
+    # Daily Mile
+    'http://api.dailymile.com/oembed?format=json': [
+        'http://www.dailymile.com/people/*/entries/*',
+    ],
+
+    # Sketchfab
+    'http://sketchfab.com/oembed': [
+        'http://sketchfab.com/show/*',
+        'https://sketchfab.com/show/*',
+    ],
+
+    # Meetup
+    'https://api.meetup.com/oembed': [
+        'http://meetup.com/*',
+        'http://meetu.ps/*',
+    ],
 }
 
 ## Load OEmbed providers
