@@ -63,7 +63,9 @@ providers = {
     # YouTube
     'http://www.youtube.com/oembed': [
         'http://youtube.com/*',
+        'http://www.youtube.com/*',
         'https://youtube.com/*',
+        'https://www.youtube.com/*',
         'http://youtu.be/*',
     ],
 
