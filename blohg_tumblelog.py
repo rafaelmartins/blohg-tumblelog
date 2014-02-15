@@ -58,6 +58,7 @@ providers = {
     # IFTTT
     'http://www.ifttt.com/oembed/': [
         'http://ifttt.com/recipes/*',
+        'https://ifttt.com/recipes/*',
     ],
 
     # YouTube
