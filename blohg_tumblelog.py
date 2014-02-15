@@ -113,11 +113,6 @@ providers = {
         'http://www.jest.com/embed/*',
     ],
 
-    # Jest
-    'http://www.jest.com/oembed.{format}': [
-        'http://www.jest.com/embed/*',
-    ],
-
     # Poll Everywhere
     'http://www.polleverywhere.com/services/oembed/': [
         'http://www.polleverywhere.com/polls/*',
