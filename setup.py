@@ -31,7 +31,7 @@ setup(
     install_requires=[
         'blohg>=0.12',
         'Pygments',
-        'python-oembed',
+        'pyoembed',
         'beautifulsoup4',
     ],
     classifiers=[
