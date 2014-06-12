@@ -16,7 +16,7 @@ cwd = os.path.dirname(os.path.abspath(__file__))
 
 setup(
     name='blohg-tumblelog',
-    version='0.1',
+    version='0.2',
     license='GPL-2',
     description=('A blohg extension with reStructuredText directives to run '
                  'a tumblelog'),
