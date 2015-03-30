@@ -16,7 +16,7 @@ from blohg.rst_parser.nodes import opengraph_image
 from bs4 import BeautifulSoup
 from contextlib import closing
 from docutils.parsers.rst import Directive, directives, nodes
-from docutils.parsers.rst.directives.body import BlockQuote
+from docutils.parsers.rst.directives.body import LineBlock
 from flask import current_app
 from pyoembed import oEmbed, PyOembedException
 from urllib2 import urlopen
@@ -137,20 +137,24 @@ class LinkDirective(Directive):
         return rv
 
 
-class QuoteDirective(BlockQuote):
+class QuoteDirective(LineBlock):
 
-    option_spec = {'author': directives.unchanged}
+    option_spec = {'title': directives.unchanged,
+                   'author': directives.unchanged}
 
     def run(self):
-        rv = BlockQuote.run(self)
+        # ugly code is ugly! :P
+        rv = [nodes.raw('', '<blockquote>\n', format='html')]
+        rv.extend(LineBlock.run(self))
         if 'author' in self.options:
             author = nodes.raw(self.options['author'],
                                u'<span class="author">— ' +
                                self.options['author'] + '</span>',
                                format='html')
-            rv[-1].append(nodes.paragraph('', '', author))
-            rv[-1].append(nodes.raw('', '<div class="clear"></div>',
-                                    format='html'))
+            rv.append(nodes.paragraph('', '', author))
+            rv.append(nodes.raw('', '<div class="clear"></div>\n',
+                                format='html'))
+        rv.append(nodes.raw('', '</blockquote>\n', format='html'))
         return rv
 
 
